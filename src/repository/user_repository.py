@@ -9,3 +9,6 @@ def find_by_id(user_id: int):
 
 def find_all():
     return list(mock_users.values())
+
+def count_users():
+    return len(mock_users)

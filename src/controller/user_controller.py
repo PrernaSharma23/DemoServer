@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from service.user_service import get_user_by_id, get_all_users
+from service.user_service import get_user_by_id, get_all_users, get_user_count
 from model.user_model import User
 from model.error_model import ErrorResponse
 from typing import List
@@ -16,3 +16,7 @@ def get_user(user_id: int):
 @router.get("/", response_model=List[User])
 def get_users():
     return get_all_users()
+    
+@router.get("/count")
+def get_count():
+    return {"totalUsers": get_user_count()}
